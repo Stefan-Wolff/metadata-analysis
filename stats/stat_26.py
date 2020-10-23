@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 #
 
+import os
 import logging
 import csv
 from . import lib
@@ -111,7 +112,8 @@ def run(data):
 	count = run_comparison(doi_authors)
 
 	# write results
-	writeCSV("stats_26.csv", count)
+	out_path = os.path.join(os.path.dirname(__file__), '../logs/stats_26.csv')
+	writeCSV(out_path, count)
 
 
 	logging.info("\t analysis 26 done")
